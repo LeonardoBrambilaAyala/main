@@ -1,0 +1,7 @@
+open-paren=(
+close-paren=)
+define=define
+sum=+
+mult=*
+indentifier=[xyz][xyz0-9]
+number=[+-]?[0-9]+

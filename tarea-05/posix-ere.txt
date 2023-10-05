@@ -1,0 +1,11 @@
+open-paren=\(
+close-paren=\)
+define=define
+sum=\+
+mult=\*
+indentifier=[a-zA-Z][a-zA-Z0-9]*
+inden-2-prot=[xyz][xyz0-9]*
+number=[+-]?[0-9]+
+
+
+
