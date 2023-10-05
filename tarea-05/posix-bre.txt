@@ -1,6 +1,0 @@
-open-paren=(
-close-paren=)
-sum=+
-mult=*
-indentifier=[a-zA-Z][a-zA-Z0-9]*
-number=[0-9]+
