@@ -1,0 +1,118 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{titlesec}
+\titleformat*{\section}{\bfseries}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontsetup}
+\usepackage{polyglossia}
+\setmainlanguage[variant=mexican]{spanish}
+
+\begin{document}
+
+
+\begin{center}
+  \textbf{Tarea 5.}\par
+  \bigskip
+  Leonardo Brambila Ayala.\par
+  \bigskip
+  Lenguajes de programación\par
+  Lic. en Ciencias de la Computación\par
+  Universidad de Sonora\par
+  Semestre 2023-1\par
+\end{center}
+
+\section {Descripcion de las las funciones.}
+
+\text (define (read-char* input)\par
+\text  (define ch (read-char input))\par
+\text  (when debug?\par
+\text    (printf "read char ~s from input~%" ch))
+\text  ch)
+\par
+\textbf {R =} 
+\text Lee un caracter del imput, mediante la funcion "read-char", y lo que se leyo se guardara en la variable local "ch". Despues verifica en debug y luego imprime un mensaje usando printf.\par
+
+\section* {Seg.Fun}
+\text(define (peek-char* input)\par
+ \text (define ch (peek-char input))\par
+  \text(when debug?
+    (printf "peeked char ~s from input~%" ch))
+  ch)\par
+
+\textbf {R=}
+\text La funcion peek-char*, se utiliza para obtener el proximo aracter de la fuente de entrada (input) sin consumirlo, y este caracter se guardara en el variable ch.\par
+
+\section* {Ter.Fun}
+\text(define (char-digit? ch)
+ \text (char<=? \# \backslash0 ch \# \backslash9))\par
+\textbf {R =}
+\text ch: Es el caracter que se va a verificar.\par
+\text La función utiliza la función char<=? para comparar el carácter ch con los caracteres 0-9. Devuelve verdadero si esta dentro del rango establecido si no devolvera falso.\par
+\text Detrminina si el caracyer pasado como argumento es un digito decimal del 0-9. Su resultado de "char<=?" sera verdadero si el caracter es un dijito, si no sera falso\par
+
+\section* {Cuar.Fun}
+\text(define (char-varletter? ch)
+  \text(member ch '(\#\backslash x \#\backslash y \#\backslash z) char=?))
+\par
+\textbf {R =} 
+\text ch: Es el caracter que se va a verificar.\par
+\text Verifica si el caracter a verificar esta dentro de la lista prmitida, "x, y, z. " La funcion devuelve el primer elemento de la lista cuando es igual a la variable "ch".\par
+\text En conclusion verifica si el caracter "ch: es una de las letras dentro del rango, si es asi devolvera verdadero, si no devolvera falso.\par
+
+\section* {Quin.Fun}
+\text(define (char-delimiter? ch)
+  \text(or (eof-object? ch)
+     \text (char-whitespace? ch)
+     \text (member ch '(\#\backslash( \#\backslash)))))
+\par
+\textbf {R =} 
+\text ch: Es el caracter que se va a verificar.\par
+\text Determina si es caracter, es un delimitador, esto puede inclui espacios en blancos y parevtesis, si es ese caso devolvera verdadero si no falso.\par
+
+\section* {Sex.Fun}
+(define (token-open-paren)
+  (token 'open-paren \#f lex-line lex-col))\par
+Crea una instanci en Toen con su propio tipo open-paren, el valor de falso y las posiciones de las columnas y sus lineas actuales\par
+
+\section* {Sep.Fun}
+(define (token-close-paren)
+  (token 'close-paren \#f lex-line lex-col))\par
+Crea una instanci en Toen con su propio tipo clsose-paren, el valor de falso y las posiciones de las columnas y sus lineas actuales\par
+
+\section* {Opt.Fun}
+(define (token-binop type)
+  (token 'binop type lex-line lex-col))\par
+Toma un argumento y crea una nueva instancia de Token con el tipo binop, el valor del argumento y las posiciones de las columnas y lieas actuales\par
+
+\section* {Novena.Fun}
+(define (token-number value col)
+  (token 'number value lex-line col))\par
+
+Toma dos argumentos, value y col, y crea una instancia de token con el tipo 'number, el valor value, y las posiciones de las columnas y lineas actuales.\par
+
+ \section* {Decima.Fun}
+(define (token-number/+ token)\par
+  (token 'number\par
+         (token-value token)\par
+         (token-line token)\par
+         (sub1 (token-col token))))\par
+
+Toma un token como argumento.
+Crea un nuevo token , el valor del token original (token-value token), la misma línea, pero con la columna decrementada en 1.
+La operación  esta relacionada con la adición (+), ya que la columna se decrementa en 1.
+\section* {Onceava.Fun}
+(define (token-number/- token)\par
+  (token 'number
+         (- (token-value token))
+         (token-line token)\par
+         (sub1 (token-col token))))\par
+
+Crea un nuevo token con el tipo 'number, con el valor negativo del token, en la misma línea (token-line token), pero con la columna decrementada en 1.
+
+\section {Errores y o bugs del codigo}
+
+\begin{enumerate}
+\item En la funcion "(define(read-alphanumeric)..)"
+\item En la funcion "(define (token-number/- token)...)"
+\end{enumerate}
+
+\end{document}
